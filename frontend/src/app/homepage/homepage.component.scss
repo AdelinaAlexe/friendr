@@ -1,0 +1,40 @@
+$blue: #163ac7;
+$red: #e1251b;
+$pink: #e76a89;
+$magenta: #c8236d;
+
+main {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.posts-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 3rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.basic-btn {
+  display: flex;
+  background: #dd5793;
+  border: 1px solid #dd5793; 
+  color: #fefefe;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 10px;
+  border-radius: 32px;
+  justify-content: center;
+  cursor: pointer;
+}

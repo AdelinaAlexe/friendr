@@ -1,0 +1,46 @@
+<div class="container">
+<div class="registration-card">
+    <h1>Create your Friendr Account</h1>
+
+    <form (ngSubmit)="signUp()">
+      <!-- Your signup form fields here -->
+      <div>
+        <!--<label for="firstName">First Name:</label>-->
+        <input type="text" placeholder="firstName" [(ngModel)]="firstName" name="firstName">
+      </div>
+
+      <div>
+            <!--<label for="lastName">Last Name:</label>-->
+            <input type="text" placeholder="lastName" [(ngModel)]="lastName" name="lastName">
+      <div>
+
+        <div>
+            <!--<label for="birthYear">Birth Year:</label>-->
+            <input type="text" placeholder="birthYear" [(ngModel)]="birthYear" name="birthYear">
+        </div>
+
+        <div>
+        <!--<label for="username">Username:</label>-->
+        <input type="text" placeholder="username" [(ngModel)]="username" name="username">
+      </div>
+
+      <div>
+        <!--<label for="password">Password:</label>-->
+        <input type="password" placeholder="password" [(ngModel)]="password" name="password">
+      </div>
+
+      <div>
+        <!--<label for="confirmPassword">Confirm Password:</label>-->
+        <input type="password" placeholder="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword">
+      </div>
+
+      <button type="submit" class="submit-btn" id=btn (click)="signUp">Sign Up</button>
+
+      <div *ngIf="successMessage" class="success-message">
+        {{successMessage}}
+        <a routerLink="['/login']">Go to Login page</a>
+      </div>
+
+</div>
+</div>
+  

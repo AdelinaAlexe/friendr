@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const usersRouter = require('./routers/users.router');
 const postsRouter = require('./routers/posts.router');
+const cors = require('cors');
 
 //app.use(express.json());
 const app = express();
 const port = 3008;
 
 app.use(express.json());
+app.use(cors());
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World!');
@@ -27,11 +29,7 @@ app.use(express.json());
 
 
 // decomment later - USERS
-// app.use('/users', usersRouter)
-
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// })
+app.use('/users', usersRouter)
 
 // decomment larer - POSTS
 app.use('/posts', postsRouter)

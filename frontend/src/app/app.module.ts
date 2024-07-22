@@ -4,15 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlaygroundModule } from './playground/playground.module';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TopNavbarComponent } from './top-navbar/top-navbar.component';
+import { PostComponent } from './post/post.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomepageComponent,
+    TopNavbarComponent,
+    PostComponent,
+    CreatePostComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PlaygroundModule
+    PlaygroundModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,11 @@
 //const { response } = require('express');
 //const { getUser } = require('../controllers/users.controller');
 const UserModel = require('../data/users.model');
+const { v4: uuidv4 } = require('uuid');
 
 const usersService = {
-    getUser: async (userID) => {
-        response = await UserModel.findOne({ id: userID }, {});
+    getUser: async (username) => {
+        response = await UserModel.findOne({ username: username }, {});
         return response;
     },
 
@@ -12,6 +13,8 @@ const usersService = {
         console.log('Reached user service');
         console.log(userObj);
         // Save the userObj to the database
+
+        userObj.id = uuidv4();
 
         const userToBeCreated = new UserModel(userObj);
 

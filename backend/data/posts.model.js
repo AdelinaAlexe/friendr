@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 
 const PostModel = mongoose.model('Post', 
     { 
-        id: Number,
+        id: String,
         date: String,
         title: String,
-        userId: Number,
-        description: String
+        author: String,
+        description: String,
+        likes: [String]
     });
 
 

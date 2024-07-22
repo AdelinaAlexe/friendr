@@ -1,6 +1,7 @@
 //const { response } = require('express');
 //const { getUser } = require('../controllers/users.controller');
 const PostModel = require('../data/posts.model');
+const { v4: uuidv4 } = require('uuid');
 
 const postsService = {
     getPost: async (postID) => {
@@ -8,7 +9,24 @@ const postsService = {
         return response;
     },
 
+    getAllPosts : async () => {
+        response = await PostModel.find({}, {});
+        return response;
+    },
+
+    removePostLikes: async (postID, username) => {
+        await PostModel.updateOne({ id: postID }, { $pull: { likes: username } });
+    },
+
+    addPostLikes: async (postID, username) => {
+        await PostModel.updateOne({ id: postID }, { $push: { likes: username } });
+    },
+
     createPost: (postObj) => {
+
+        postObj.id = uuidv4();
+        postObj.date = new Date().toISOString();
+
         console.log('Reached post service');
         console.log(postObj);
         // Save the userObj to the database

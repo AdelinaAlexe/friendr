@@ -8,8 +8,13 @@ const UserModel = require('../data/users.model');
 const usersController = {
     getUser: async (req, res) => {
         console.log('Reached GET user controller');
-        const userID = req.params.id;
-        const userObj = await usersService.getUser(userID);
+        const username = req.params.username;
+        console.log(username);
+        const userObj = await usersService.getUser(username)
+        if(!userObj) {
+            res.status(404).send('User not found');
+            return;
+        }
         res.status(200).send(userObj);
     },
 
@@ -23,14 +28,14 @@ const usersController = {
             !userToBeCreated?.lastName ||
             !userToBeCreated?.username ||
             !userToBeCreated?.birthYear ||
-            !userToBeCreated?.id
+            !userToBeCreated?.password
         ) {
                 res.status(400).send('User object is missing');
                 return;
             }
         console.log(userToBeCreated);
         usersService.createUser(userToBeCreated);
-        res.status(201).send('User created successfully');
+        res.status(201).json({ message: 'User created successfully' });
     },
 
     deleteUser: async (req, res) => {
